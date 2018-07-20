@@ -1,0 +1,985 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="/css/style.css">
+        <title>
+            Harry Potter House Quiz
+        </title>
+    </head>
+    
+    <body class = "housequizbody">
+          <br>
+          <br>
+          <h3 class = "navbar">
+              <a href="/" > Home</a>
+              <a href="/books" > The Books</a>
+              <a href="/movies" > The Movies</a>
+              <a href="/summary" > Summary</a>
+              <a href="/characters" > Characters</a>
+              <a href="/questions" > Character Quiz</a>
+              <a href="/otherpages" > Links </a>
+          </h3>
+          <br>
+          <br>
+            <div class = "house">
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <h1 class = "hogwarts">
+                Which Hogwarts House Do You Belong In?
+            </h1>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+        </div>
+        
+           <div class="subbuzz-freeform__embed xs-mb1">
+      
+<div id="quiz_area" class="uk_engine_quiz" style="margin-top:-1em"></div>
+<link rel="stylesheet" type="text/css" href="/css/style.css">
+<script>
+/* paul.curry@buzzfeed.com */
+var nf_3g = {
+  custom_result_selector: function() {
+    return "generic";
+  },
+  largestRemainderMethod: function(valuestoFix) {
+    // https://www.nuxeo.com/blog/giving-it-99-percent/
+    // Floor everything
+    var flooredValues = valuestoFix.map(Math.floor);
+    // Get the difference between the sum of the floored values and 100
+    var flooredTotal = flooredValues.reduce(function(a, b) {
+      return a + b;
+    });
+    var difference = 100 - flooredTotal;
+    // Distribute the difference by adding 1 to items in decreasing order of their decimal parts
+    var decimalParts = valuestoFix.map(function(value) {
+      return value % 1;
+    })
+    while (difference > 0) {
+      var position = 0;
+      for (i = 0; i < decimalParts.length; i++) {
+        if (decimalParts[i] > decimalParts[position]) {
+          var position = i;
+          decimalParts[i] = 0;
+        }
+      }
+      flooredValues[position] = flooredValues[position] + 1;
+      difference = difference - 1;
+    }
+    return flooredValues;
+  },
+  custom_result_formatter: function($, nf_3g, weighting_array, points_accumulated, result) {
+    
+    var w = weighting_array;
+
+    // Split values and keys, calculate total of all values
+    var total = 0;
+    var keys = [];
+    $.each(w, function(i,o) { 
+      keys.push(i);
+      total = total + o; 
+    });
+
+    // Calculate percentages
+    var percentages = [];
+    $.each(w, function(i,o) {       
+      percentages.push((o/total)*100); 
+    });
+
+    // Perform LRM
+    var lr = nf_3g.largestRemainderMethod(percentages);
+
+    // Sort LRM'd value array (highest-first) and re-associate values and keys
+    var assoc = [];
+    $.each(lr, function(i,o) {
+      assoc.push([keys[i], lr[i]]) 
+    });
+    assoc.sort(function(a, b) { return b[1] - a[1] });
+
+    // Build title
+    result.title = "";
+    $.each(assoc, function(a,o) {
+      var thing = o[0];
+      var percent = o[1];
+      if (a < keys.length-1) {
+        result.title = result.title + percent + "% " + thing + ", ";
+      } else {
+        result.title = result.title + "and " + percent + "% " + thing + "!";
+      }
+    });
+
+    // Build description
+    var descriptions = {
+      "Gryffindor/Slytherin": "Like Harry Potter himself, your allegiances definitely lie with Gryffindor, but Slytherin may be a better fit for you than you’d originally think. Your passion for adventure, excitement, and new experiences means that Gryffindor is the perfect place for you. You are fiercely loyal to your closest friends – sometimes even to a fault – and the recklessness and optimism that comes with being a Gryffindor combined with the ambition of Slytherin will ensure that you go far in life.",
+      "Gryffindor/Ravenclaw": "Just like Hermione Granger, you were ultimately placed in Gryffindor, but the Sorting Hat seriously considered putting you in Ravenclaw. You are a natural born leader, often taking control of the reins from others whose recklessness or dedication to facts and knowledge clouds their judgment. You are intelligent, but acknowledge that there are more important things in life, and therefore aim to use your intelligence and determination to fight for what you believe to be right.",
+      "Gryffindor/Hufflepuff": "You have all the loyalty of a Hufflepuff, but your affinity for Gryffindor ensures that that loyalty is fierce: You would do almost anything for your loved ones, even if it has a negative effect on you personally. This means that your friends and family members often come to you when in need, but it’s also important to remember to spend time taking care of yourself. You wear your heart on your sleeve, and impulsively act on your emotions without fear of the consequences.",
+      "Hufflepuff/Gryffindor": "You’re undeniably a Hufflepuff, but you definitely have some strong Gryffindor qualities. You proudly wear your heart on your sleeve, but you lack the recklessness of a true Gryffindor, which means that you don’t act on your feelings without thinking. Your kindness and openness is what originally attracts other people to you, but they stay for your unwavering loyalty, meaning you’re constantly surrounded by a large group of friends.",
+      "Hufflepuff/Ravenclaw": "You belong in Hufflepuff without question, but your Ravenclaw-esque appreciation for knowledge means your many friends come to you when they need advice from someone with a level head. While you enjoy any kind of learning, working as part of a team is where you truly thrive. You are an excellent collaborator, and understand that communication with others is an essential part of learning and, more importantly, growing as a person.",
+      "Hufflepuff/Slytherin": "People often consider the two to be polar opposites, but you are a rarity: a true Hufflepuff with some undeniably Slytherin traits. You strive for success, but would never sacrifice fairness in order to achieve it, which is why you truly belong in Hufflepuff house. Like all Hufflepuffs, you are incredibly hard-working, but you are also fiercely ambitious, meaning that you are successful in every task you set your mind to.",
+      "Ravenclaw/Gryffindor": "You believe above all in the importance of wisdom, which is why you undoubtedly belong in Ravenclaw, but your sense of adventure means you may also have an affinity for Gryffindor house. You are a thrill-seeker – you love to travel and there’s nothing more exciting to you than new experiences – and believe that adventure is essential in the pursuit of knowledge. You are brave, but would never intentionally put yourself in danger, placing you firmly in Ravenclaw.",
+      "Ravenclaw/Hufflepuff": "You definitely belong in Ravenclaw, but you have a kindness that sets you apart from most. While some Ravenclaws can be seen as slightly haughty or intimidating, your Hufflepuff side means you are more approachable, and therefore have an easier time making friends. Despite your softness, you find it easy to detach yourself from emotional situations and give objective viewpoints, making you the perfect person to go to for advice.",
+      "Ravenclaw/Slytherin": "You are a Ravenclaw through and through, but your ruthless ambition means you may also fit well in Slytherin. Knowledge is incredibly important to you, and you love nothing more than learning new things, but your love of learning is undeniably motivated by your determination for success. Unlike some of your fellow Ravenclaws, you often avoid any task that requires teamwork, preferring to work alone.",
+      "Slytherin/Gryffindor": "You are relentless in your pursuit of success, making you a perfect fit for Slytherin, but your willingness to take risks makes you somewhat compatible with the typical traits of Gryffindor house. People who don’t know you well are often intimidated by your reserved demeanour, and you have very few close friends. You are loyal to few, and definitely prioritise personal success over close relationships.",
+      "Slytherin/Ravenclaw": "Your Slytherin ambition combined with a typically Ravenclaw-esque thirst for wisdom means you are destined to go far in life. People often consider you to be aloof and unapproachable – and they may actually be right – as your passion for knowledge and success far outweighs your need for close relationships. For you, true friendships are rare, but you are smart enough to hold onto those you deem worthy of your affection.",
+      "Slytherin/Hufflepuff": "It is often said that Slytherin and Hufflepuff couldn’t possibly live in harmony, but you prove those people wrong: You belong without doubt in Slytherin house, but you have some undeniably Hufflepuff qualities hiding behind your detached demeanour. You can find it difficult to develop close friendships, but the people close to you know you’re a big softie at heart, and will do anything in your power – <i>anything</i> – to help them."
+    }
+    result.desc = descriptions[assoc[0][0] + "/" + assoc[1][0]];
+
+    // And subdesc
+    var subdescs = {
+      "Gryffindor": "Your slight compatibility with Gryffindor house hints at an underlying desire for adventure that may manifest itself in a love of travel or trying new things.",
+      "Hufflepuff": "Your slight compatibility with Hufflepuff house suggests a deep love and appreciation for those close to you, which you may keep hidden for fear of being hurt.",
+      "Ravenclaw": "Your slight compatibility with Ravenclaw house hints at an appreciation for knowledge and wisdom, though they are not priorities for you.",
+      "Slytherin": "Your slight compatibility with Slytherin house suggests a determination to succeed, though not at the expense of traits from your more dominant houses."
+    }
+    result.desc += "\n\n" + subdescs[assoc[2][0]];
+
+    // Overruled?
+    if (assoc[0][1] < 30) {
+      result.desc = "So, you're " + result.title + " You seem to be an almost perfect combination of all four houses, which is incredibly rare – you’re equal in your intelligence, bravery, loyalty, and ambition. As we know, though, the Sorting Hat takes your preference into account...so it looks like you get to choose your own house. Congratulations!";
+      result.title = "ALL THE THINGS!";
+    }
+
+    // Build colour bar
+    setTimeout(function() {
+      $("#quiz_area .ukq_quiz_result").append("<div id='potbar' style='width:100%;height:1.1em;margin-top:0.75em;margin-bottom:0.25em'></div>");
+      $("body").append("<style>.potbar { height: 100%; display:inline-block; transition: width 2s; } " +
+        ".potbar-Ravenclaw { background-color: #0e5a7c; }" + 
+        ".potbar-Slytherin { background-color: #0c5725; }" + 
+        ".potbar-Gryffindor { background-color: #7c0e16; }" + 
+        ".potbar-Hufflepuff { background-color: #ba9229; }" + 
+      "</style>"
+      )
+      $.each(assoc, function(a,o) {
+        var thing = o[0];
+        var percent = o[1];
+        $("#potbar").append("<div class='potbar potbar-" + thing + "' style='width:0px'></div>")
+        setTimeout(function() {
+          $(".potbar-" + thing).css("width", percent + "%");
+        }, 250);
+      });
+    }, 33);
+
+    return result;
+
+  },
+   "quiz":{  
+      "rounds":[  
+         {  
+            "id":"1393b500",
+            "questions":{  
+               "7536b71a":{  
+                  "answers":[  
+                     {  
+                        "id":"ce169cee",
+                        "weighting": {
+                          "Ravenclaw": 0,
+                          "Hufflepuff": 1,
+                          "Gryffindor": 3,
+                          "Slytherin": 1
+                        },
+                        "text":"Phoenix Feather"
+                     },
+                     {  
+                        "id":"f72fd47f",
+                        "weighting": {
+                          "Ravenclaw": 1,
+                          "Hufflepuff": 0,
+                          "Gryffindor": 1,
+                          "Slytherin": 3
+                        },
+                        "text":"Dragon Heartstring"
+                     },
+                     {  
+                        "id":"b9f7c9e7",
+                        "weighting": {
+                          "Ravenclaw": 3,
+                          "Hufflepuff": 3,
+                          "Gryffindor": 0,
+                          "Slytherin": 0
+                        },
+                        "text":"Unicorn Hair"
+                     }
+                  ],
+                  "is_image_question":false,
+                  "is_2col":false,
+                  "title":"You’ve made it to Hogwarts, which means you’ve already bought a wand from Ollivander’s. What material is at its core?",
+                  "image_credit":""
+               }
+            }
+         },
+         {  
+            "id":"0fe92770",
+            "questions":{  
+               "eee00f16":{  
+                  "answers":[  
+                     {  
+                        "id":"5dd7ce46",
+                        "weighting": {
+                          "Ravenclaw": 5,
+                          "Hufflepuff": 2,
+                          "Gryffindor": 1,
+                          "Slytherin": 2
+                        },
+                        "text":"Tell the professor immediately – cheating is wrong, no matter what."
+                     },
+                     {  
+                        "id":"84280f77",
+                        "weighting": {
+                          "Ravenclaw": 2,
+                          "Hufflepuff": 0,
+                          "Gryffindor": 2,
+                          "Slytherin": 5
+                        },
+                        "text":"Nothing, but if I hadn't come top of the class, I'd definitely tell the professor."
+                     },
+                     {  
+                        "id":"7b2fd89e",
+                        "weighting": {
+                          "Ravenclaw": 1,
+                          "Hufflepuff": 5,
+                          "Gryffindor": 0,
+                          "Slytherin": 0
+                        },
+                        "text":"Encourage the other student to admit what they'd done to the professor."
+                     },
+                     {  
+                        "id":"c7dcbda9",
+                        "weighting": {
+                          "Ravenclaw": 0,
+                          "Hufflepuff": 1,
+                          "Gryffindor": 5,
+                          "Slytherin": 0
+                        },
+                        "text":"Give them a high five for managing to sneak the quill into the exam."
+                     }
+                  ],
+                  "is_image_question":false,
+                  "is_2col":false,
+                  "title":"During the end-of-year exams, you notice that one of your classmates was using an enchanted quill. You come top of the class anyway, but they are second. What do you do?",
+                  "image_credit":""
+               }
+            }
+         },
+         {  
+            "id":"24427e4b",
+            "questions":{  
+               "98de2a84":{  
+                  "answers":[  
+                     {  
+                        "id":"0b07559a",
+                        "weighting": {
+                          "Ravenclaw": 1,
+                          "Hufflepuff": 1,
+                          "Gryffindor": 3,
+                          "Slytherin": 10
+                        },
+                        "text":"Weak"
+                     },
+                     {  
+                        "id":"8b7d38b8",
+                        "weighting": {
+                          "Ravenclaw": 10,
+                          "Hufflepuff": 3,
+                          "Gryffindor": 2,
+                          "Slytherin": 2
+                        },
+                        "text":"Ignorant"
+                     },
+                     {  
+                        "id":"47429ab1",
+                        "weighting": {
+                          "Ravenclaw": 0,
+                          "Hufflepuff": 10,
+                          "Gryffindor": 0,
+                          "Slytherin": 0
+                        },
+                        "text":"Unkind"
+                     },
+                     {  
+                        "id":"39d835fa",
+                        "weighting": {
+                          "Ravenclaw": 2,
+                          "Hufflepuff": 0,
+                          "Gryffindor": 10,
+                          "Slytherin": 3
+                        },
+                        "text":"Boring"
+                     }
+                  ],
+                  "is_image_question":false,
+                  "is_2col":false,
+                  "title":"You would be most hurt if a person called you...",
+                  "image_credit":""
+               }
+            }
+         },
+         {  
+            "id":"7be38232",
+            "questions":{  
+               "a4553023":{  
+                  "answers":[  
+                     {  
+                        "id":"9c725eaf",
+                        "weighting": {
+                          "Ravenclaw": 1,
+                          "Hufflepuff": 7,
+                          "Gryffindor": 2,
+                          "Slytherin": 0
+                        },
+                        "text":"Expelliarmus!"
+                     },
+                     {  
+                        "id":"694882bd",
+                        "weighting": {
+                          "Ravenclaw": 7,
+                          "Hufflepuff": 2,
+                          "Gryffindor": 3,
+                          "Slytherin": 3
+                        },
+                        "text":"Protego!"
+                     },
+                     {  
+                        "id":"7b856497",
+                        "weighting": {
+                          "Ravenclaw": 2,
+                          "Hufflepuff": 1,
+                          "Gryffindor": 7,
+                          "Slytherin": 3
+                        },
+                        "text":"Stupefy!"
+                     },
+                     {  
+                        "id":"bf0f7ba2",
+                        "weighting": {
+                          "Ravenclaw": 0,
+                          "Hufflepuff": 0,
+                          "Gryffindor": 0,
+                          "Slytherin": 7
+                        },
+                        "text":"Crucio!"
+                     }
+                  ],
+                  "is_image_question":false,
+                  "is_2col":false,
+                  "title":"You're locked in a duel with a skilled opponent. They fire an unknown spell at you, and you shout…",
+                  "image_credit":""
+               }
+            }
+         },
+         {  
+            "id":"842806a4",
+            "questions":{  
+               "8a818fb6":{  
+                  "answers":[  
+                     {  
+                        "id":"8dd624a8",
+                        "weighting": {
+                          "Ravenclaw": 1,
+                          "Hufflepuff": 0,
+                          "Gryffindor": 5,
+                          "Slytherin": 2
+                        },
+                        "text":"Sneaking into the Forbidden Forest at night on a dare."
+                     },
+                     {  
+                        "id":"7762d4ec",
+                        "weighting": {
+                          "Ravenclaw": 0,
+                          "Hufflepuff": 0,
+                          "Gryffindor": 2,
+                          "Slytherin": 5
+                        },
+                        "text":"Getting caught cheating in my Divination O.W.L."
+                     },
+                     {  
+                        "id":"9d01f618",
+                        "weighting": {
+                          "Ravenclaw": 5,
+                          "Hufflepuff": 1,
+                          "Gryffindor": 1,
+                          "Slytherin": 0
+                        },
+                        "text":"Being put in detention after I was caught in the library after hours."
+                     },
+                     {  
+                        "id":"791ff762",
+                        "weighting": {
+                          "Ravenclaw": 2,
+                          "Hufflepuff": 5,
+                          "Gryffindor": 0,
+                          "Slytherin": 1
+                        },
+                        "text":"Nothing! I'd never do anything to warrant a Howler."
+                     }
+                  ],
+                  "is_image_question":false,
+                  "is_2col":false,
+                  "title":"It's your fifth year at Hogwarts, and you've just received a Howler from your parents. What for?",
+                  "image_credit":""
+               }
+            }
+         },
+         {  
+            "id":"c7542b6f",
+            "questions":{  
+               "9db4bb58":{  
+                  "answers":[  
+                     {  
+                        "id":"7d1efc79",
+                        "weighting": {
+                          "Ravenclaw": 0,
+                          "Hufflepuff": 3,
+                          "Gryffindor": 1,
+                          "Slytherin": 2
+                        },
+                        "text":"\"Pity the living, and above all, those who live without love.\""
+                     },
+                     {  
+                        "id":"490ce88b",
+                        "weighting": {
+                          "Ravenclaw": 3,
+                          "Hufflepuff": 0,
+                          "Gryffindor": 0,
+                          "Slytherin": 1
+                        },
+                        "text":"\"Words are, in my not-so-humble opinion, our most inexhaustible source of magic.\""
+                     },
+                     {  
+                        "id":"cda2b94b",
+                        "weighting": {
+                          "Ravenclaw": 1,
+                          "Hufflepuff": 2,
+                          "Gryffindor": 2,
+                          "Slytherin": 0
+                        },
+                        "text":"\"It matters not what someone is born, but what they grow to be.\""
+                     },
+                     {  
+                        "id":"b790e6bd",
+                        "weighting": {
+                          "Ravenclaw": 2,
+                          "Hufflepuff": 1,
+                          "Gryffindor": 3,
+                          "Slytherin": 3
+                        },
+                        "text":"\"It does not do to dwell on dreams and forget to live.\""
+                     }
+                  ],
+                  "is_image_question":false,
+                  "is_2col":false,
+                  "title":"Which of these Dumbledore quotations speaks to you?",
+                  "image_credit":""
+               }
+            }
+         },
+         {  
+            "id":"9bf1f54c",
+            "questions":{  
+               "45dc1310":{  
+                  "answers":[  
+                     {  
+                        "id":"1203a62b",
+                        "weighting": {
+                          "Ravenclaw": 0,
+                          "Hufflepuff": 5,
+                          "Gryffindor": 0,
+                          "Slytherin": 0
+                        },
+                        "text":"I love surrounding myself with people – the more friends I have, the better!"
+                     },
+                     {  
+                        "id":"83608f65",
+                        "weighting": {
+                          "Ravenclaw": 2,
+                          "Hufflepuff": 2,
+                          "Gryffindor": 5,
+                          "Slytherin": 1
+                        },
+                        "text":"I have a few very close friends that I would trust with my life."
+                     },
+                     {  
+                        "id":"d89a0edd",
+                        "weighting": {
+                          "Ravenclaw": 5,
+                          "Hufflepuff": 1,
+                          "Gryffindor": 2,
+                          "Slytherin": 2
+                        },
+                        "text":"I tend to be wary around new people, so don't make new friends often."
+                     },
+                     {  
+                        "id":"dd32572f",
+                        "weighting": {
+                          "Ravenclaw": 1,
+                          "Hufflepuff": 0,
+                          "Gryffindor": 1,
+                          "Slytherin": 5
+                        },
+                        "text":"I find myself becoming friends with people who can help me to succeed."
+                     }
+                  ],
+                  "is_image_question":false,
+                  "is_2col":false,
+                  "title":"Which of these most accurately describes your relationship with your closest friends?",
+                  "image_credit":""
+               }
+            }
+         },
+         {  
+            "id":"e14e066c",
+            "questions":{  
+               "8d2ade2d":{  
+                  "answers":[  
+                     {  
+                        "id":"09e702c4",
+                        "weighting": {
+                          "Ravenclaw": 7,
+                          "Hufflepuff": 1,
+                          "Gryffindor": 2,
+                          "Slytherin": 1
+                        },
+                        "text":"My ability to absorb new information."
+                     },
+                     {  
+                        "id":"212d3411",
+                        "weighting": {
+                          "Ravenclaw": 0,
+                          "Hufflepuff": 7,
+                          "Gryffindor": 0,
+                          "Slytherin": 0
+                        },
+                        "text":"My ability to make new friends."
+                     },
+                     {  
+                        "id":"248e3f00",
+                        "weighting": {
+                          "Ravenclaw": 3,
+                          "Hufflepuff": 0,
+                          "Gryffindor": 7,
+                          "Slytherin": 4
+                        },
+                        "text":"My ability to get what I want."
+                     },
+                     {  
+                        "id":"10a54f59",
+                        "weighting": {
+                          "Ravenclaw": 1,
+                          "Hufflepuff": 3,
+                          "Gryffindor": 3,
+                          "Slytherin": 7
+                        },
+                        "text":"My ability to keep secrets."
+                     }
+                  ],
+                  "is_image_question":false,
+                  "is_2col":false,
+                  "title":"Which of your skills are you most proud of?",
+                  "image_credit":""
+               }
+            }
+         },
+         {  
+            "id":"5c6e564a",
+            "questions":{  
+               "88964b9c":{  
+                  "answers":[  
+                     {  
+                        "id":"58f8a887",
+                        "weighting": {
+                          "Ravenclaw": 1,
+                          "Hufflepuff": 0,
+                          "Gryffindor": 7,
+                          "Slytherin": 7
+                        },
+                        "text":"Seeker. I want the glory!"
+                     },
+                     {  
+                        "id":"4782b7bb",
+                        "weighting": {
+                          "Ravenclaw": 7,
+                          "Hufflepuff": 3,
+                          "Gryffindor": 2,
+                          "Slytherin": 1
+                        },
+                        "text":"Chaser. I like to be involved, and work as part of the team."
+                     },
+                     {  
+                        "id":"ee2807e8",
+                        "weighting": {
+                          "Ravenclaw": 2,
+                          "Hufflepuff": 1,
+                          "Gryffindor": 1,
+                          "Slytherin": 3
+                        },
+                        "text":"Beater. I like having all that power."
+                     },
+                     {  
+                        "id":"3603e2e3",
+                        "weighting": {
+                          "Ravenclaw": 0,
+                          "Hufflepuff": 7,
+                          "Gryffindor": 0,
+                          "Slytherin": 0
+                        },
+                        "text":"I'll be in the crowd, making sure supporter morale is high!"
+                     }
+                  ],
+                  "is_image_question":false,
+                  "is_2col":false,
+                  "title":"The first Quidditch match of the season is approaching, and you can't wait to get involved. What role are you playing?",
+                  "image_credit":""
+               }
+            }
+         },
+         {  
+            "id":"57752fed",
+            "questions":{  
+               "98378e68":{  
+                  "answers":[  
+                     {  
+                        "id":"1386b267",
+                        "weighting": {
+                          "Ravenclaw": 3,
+                          "Hufflepuff": 0,
+                          "Gryffindor": 2,
+                          "Slytherin": 3
+                        },
+                        "text":"Owl"
+                     },
+                     {  
+                        "id":"74005106",
+                        "weighting": {
+                          "Ravenclaw": 2,
+                          "Hufflepuff": 1,
+                          "Gryffindor": 3,
+                          "Slytherin": 0
+                        },
+                        "text":"Cat"
+                     },
+                     {  
+                        "id":"5dc62646",
+                        "weighting": {
+                          "Ravenclaw": 0,
+                          "Hufflepuff": 3,
+                          "Gryffindor": 1,
+                          "Slytherin": 1
+                        },
+                        "text":"Toad"
+                     },
+                     {  
+                        "id":"9bca8740",
+                        "weighting": {
+                          "Ravenclaw": 1,
+                          "Hufflepuff": 2,
+                          "Gryffindor": 0,
+                          "Slytherin": 2
+                        },
+                        "text":"Nothing. I can't be trusted to look after a pet!"
+                     }
+                  ],
+                  "is_image_question":false,
+                  "is_2col":false,
+                  "title":"You're allowed a pet at Hogwarts: an owl, a cat, or a toad. Which do you bring?",
+                  "image_credit":""
+               }
+            }
+         },
+         {  
+            "id":"5abf04ad",
+            "questions":{  
+               "179ed02e":{  
+                  "answers":[  
+                     {  
+                        "id":"ab612f7c",
+                        "weighting": {
+                          "Ravenclaw": 1,
+                          "Hufflepuff": 0,
+                          "Gryffindor": 3,
+                          "Slytherin": 3
+                        },
+                        "text":"The Forbidden Forest"
+                     },
+                     {  
+                        "id":"0544c9d2",
+                        "weighting": {
+                          "Ravenclaw": 7,
+                          "Hufflepuff": 3,
+                          "Gryffindor": 0,
+                          "Slytherin": 1
+                        },
+                        "text":"The library"
+                     },
+                     {  
+                        "id":"821857a7",
+                        "weighting": {
+                          "Ravenclaw": 0,
+                          "Hufflepuff": 7,
+                          "Gryffindor": 2,
+                          "Slytherin": 0
+                        },
+                        "text":"The kitchens"
+                     },
+                     {  
+                        "id":"53863980",
+                        "weighting": {
+                          "Ravenclaw": 3,
+                          "Hufflepuff": 1,
+                          "Gryffindor": 7,
+                          "Slytherin": 7
+                        },
+                        "text":"The Room of Requirement"
+                     }
+                  ],
+                  "is_image_question":false,
+                  "is_2col":false,
+                  "title":"It's Saturday, you've finished your homework, and you have some free time. You decide to spend some time away from your common room. Where do you go?",
+                  "image_credit":""
+               }
+            }
+         },
+         {  
+            "id":"5975e1fc",
+            "questions":{  
+               "6609f91b":{  
+                  "answers":[  
+                     {  
+                        "id":"dcd8bed4",
+                        "weighting": {
+                          "Ravenclaw": 0,
+                          "Hufflepuff": 0,
+                          "Gryffindor": 0,
+                          "Slytherin": 10
+                        },
+                        "text":"Myself, surrounded by riches."
+                     },
+                     {  
+                        "id":"30e1630c",
+                        "weighting": {
+                          "Ravenclaw": 2,
+                          "Hufflepuff": 10,
+                          "Gryffindor": 5,
+                          "Slytherin": 0
+                        },
+                        "text":"Myself, surrounded by my loving family and friends."
+                     },
+                     {  
+                        "id":"1e96a461",
+                        "weighting": {
+                          "Ravenclaw": 10,
+                          "Hufflepuff": 1,
+                          "Gryffindor": 3,
+                          "Slytherin": 5
+                        },
+                        "text":"Myself, knowledgable above all."
+                     },
+                     {  
+                        "id":"e7241616",
+                        "weighting": {
+                          "Ravenclaw": 5,
+                          "Hufflepuff": 2,
+                          "Gryffindor": 10,
+                          "Slytherin": 1
+                        },
+                        "text":"Myself, experiencing a marvellous adventure."
+                     }
+                  ],
+                  "is_image_question":false,
+                  "is_2col":false,
+                  "title":"What would you see in the Mirror of Erised?",
+                  "image_credit":""
+               }
+            }
+         },
+         {  
+            "id":"c2231cd7",
+            "questions":{  
+               "8a80fc9f":{  
+                  "answers":[  
+                     {  
+                        "id":"5d6fc406",
+                        "weighting": {
+                          "Ravenclaw": 8,
+                          "Hufflepuff": 0,
+                          "Gryffindor": 2,
+                          "Slytherin": 8
+                        },
+                        "text":"The Elder Wand"
+                     },
+                     {  
+                        "id":"794109f4",
+                        "weighting": {
+                          "Ravenclaw": 0,
+                          "Hufflepuff": 8,
+                          "Gryffindor": 0,
+                          "Slytherin": 2
+                        },
+                        "text":"The Resurrection Stone"
+                     },
+                     {  
+                        "id":"d3ea8f01",
+                        "weighting": {
+                          "Ravenclaw": 2,
+                          "Hufflepuff": 2,
+                          "Gryffindor": 8,
+                          "Slytherin": 0
+                        },
+                        "text":"The Cloak of Invisibility"
+                     }
+                  ],
+                  "is_image_question":false,
+                  "is_2col":false,
+                  "title":"Choose a Deathly Hallow.",
+                  "image_credit":""
+               }
+            }
+         },
+         {  
+            "id":"99b34cf9",
+            "questions":{  
+               "d92f9202":{  
+                  "answers":[  
+                     {  
+                        "id":"fe8174a9",
+                        "weighting": {
+                          "Ravenclaw": 10,
+                          "Hufflepuff": 1,
+                          "Gryffindor": 5,
+                          "Slytherin": 6
+                        },
+                        "text":"I'd join the Ministry – I want to make a difference in the world."
+                     },
+                     {  
+                        "id":"41820199",
+                        "weighting": {
+                          "Ravenclaw": 2,
+                          "Hufflepuff": 2,
+                          "Gryffindor": 10,
+                          "Slytherin": 1
+                        },
+                        "text":"I think I'd travel for a while before committing to a career."
+                     },
+                     {  
+                        "id":"31c7cb17",
+                        "weighting": {
+                          "Ravenclaw": 0,
+                          "Hufflepuff": 10,
+                          "Gryffindor": 0,
+                          "Slytherin": 0
+                        },
+                        "text":"I'd settle down and start a family as soon as possible!"
+                     },
+                     {  
+                        "id":"90280c10",
+                        "weighting": {
+                          "Ravenclaw": 4,
+                          "Hufflepuff": 0,
+                          "Gryffindor": 1,
+                          "Slytherin": 10
+                        },
+                        "text":"I'd continue to work hard in order to achieve as much success as possible."
+                     }
+                  ],
+                  "is_image_question":false,
+                  "is_2col":false,
+                  "title":"Which path do you intend to follow after leaving Hogwarts?",
+                  "image_credit":""
+               }
+            }
+         },
+         {  
+            "id":"e50616aa",
+            "questions":{  
+               "bbcebaec":{  
+                  "answers":[  
+                     {  
+                        "id":"148806bd",
+                        "weighting": {
+                          "Ravenclaw": 1,
+                          "Hufflepuff": 1,
+                          "Gryffindor": 10,
+                          "Slytherin": 1
+                        },
+                        "text":"Gryffindor"
+                     },
+                     {  
+                        "id":"75cb9c8f",
+                        "weighting": {
+                          "Ravenclaw": 0,
+                          "Hufflepuff": 10,
+                          "Gryffindor": 1,
+                          "Slytherin": 0
+                        },
+                        "text":"Hufflepuff"
+                     },
+                     {  
+                        "id":"d9cd4cd2",
+                        "weighting": {
+                          "Ravenclaw": 10,
+                          "Hufflepuff": 1,
+                          "Gryffindor": 1,
+                          "Slytherin": 1
+                        },
+                        "text":"Ravenclaw"
+                     },
+                     {  
+                        "id":"e63157e5",
+                        "weighting": {
+                          "Ravenclaw": 1,
+                          "Hufflepuff": 0,
+                          "Gryffindor": 0,
+                          "Slytherin": 10
+                        },
+                        "text":"Slytherin"
+                     }
+                  ],
+                  "is_image_question":false,
+                  "is_2col":false,
+                  "title":"And finally: We know that the Sorting Hat takes into account your preferences. So which Hogwarts house do you feel you identify with most closely?",
+                  "image_credit":""
+               }
+            }
+         }
+      ],
+      "results": {
+        "generic": {
+          "title": "replace",
+          "desc": "replace"
+        }
+      },
+      "name":"What’s Your Hogwarts House Percentage?"
+   },
+   "i18n":{  
+      "you_got":"You Are",
+      "replay":"Take the quiz again",
+      "retry_last":"Retry last question",
+      "social_prefix":"I am",
+      "twitter_rel":"BuzzFeedUK"
+   }
+};
+
+</script>
+<script src="https://games-stage.buzzfeed.com/_uk/quiz-3g/engine/quiz-engine.min.js"></script>
+      
+    </div>
+
+    
+
+<figcaption class="subbuzz__caption">
+  
+
+  
+</figcaption>
+
+</div>
+   <div class="text-gray-lighter fill-gray-lighter xs-mb4">
+    </div>
+    </body>
+</html>
+

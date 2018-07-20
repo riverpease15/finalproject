@@ -1,0 +1,1162 @@
+/*House Quiz Stuff*/
+
+.footer {
+  font-family: "Arial Narrow", sans-serif;
+}
+
+.housequizbody {
+   background-image: url(http://www.freebiesgallery.com/wp-content/uploads/2013/09/paper-backgrounds.jpg);
+   background-size: contain;
+}
+
+a {
+  font-family: "Brush Script MT", cursive;
+  font-size: 30px;
+}
+
+.house {
+    opacity: 0.6;
+    background-image: url("https://wallpaperclicker.com/storage/wallpaper/harry-potter-wallpapers-desktop-86788224.jpg") ;
+    background-size: cover;
+}
+
+.hogwarts {
+    color: white;
+    font-size: 90px;
+    text-align: center;   
+    font-family: "Brush Script MT", cursive;
+}
+
+/*this is the question information*/
+.ukq_hero .headline-1 {
+  text-align: left;
+  font-size: 2.3em;
+  margin-bottom: 0.3em !important;
+  color: #121212;
+  font-weight: 600;
+  font-family: "Brush Script MT", cursive;
+}
+
+/*this is the end of the question information*/
+
+.headline-with-image {
+	margin-bottom:0.5em;
+}
+
+.image-answer-area {
+	text-align:center;
+	margin-top: 5px !important;
+}
+
+.text-answer-area {
+	margin-top: 0.8em !important;
+}
+
+.image-contain {
+	display:inline-block;
+	margin: 0px;
+  width: 100%;
+  max-width: 693px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+}
+
+.optional_uknf_html img {
+	max-width:100%;
+	max-height:500px;
+}
+
+.uk_engine_quiz .ukf_textq {
+  list-style: none;
+  border: 10px solid black;
+  margin: 0 0 14px 0 !important;
+  padding: 8px 7px 10px !important;
+  min-height: 21px;
+  background: none;
+  position: relative;
+  text-align: left;
+}
+
+.ukq_text_answer_text {
+  font-size: 1.8em !important;
+  display: block;
+  position: relative;
+  top: 1.5px;
+  line-height: normal !important;
+}
+
+/* Final sharing */
+
+.ukq_sharing {
+  width: 100%;
+  border: 0;
+  margin-bottom: 3px !important;
+}
+
+.ukq_sharing td {
+  padding: 1px !important;
+}
+
+
+.ukq_sharing svg {
+  height: 2em;
+  width: 2em;
+  margin-top: 0.3em;
+  margin-bottom: -0.1em;
+}
+.ukq_sharing svg path {
+  fill: #fff;
+}
+
+/* Question */
+
+.uk_engine_quiz {
+  text-align: left;
+}
+
+.ukq_question {
+  margin-bottom:13px !important;
+  margin-top: 1.5em !important;
+}
+
+/* Question Hero Container */
+
+.ukq_hero {
+  text-align: center;
+  margin-bottom: 3px;
+  margin-top: 20px;
+}
+
+.ukq_hero_img {
+	width:100%;
+  max-width:693px !important;
+}
+
+.ukq_imagecredit {
+  color: black !important;
+  font-size: 1.8em !important;
+  line-height: 10px !important;
+  height: 13px !important;
+  overflow: hidden !important;
+  font-style: italic !important;
+  padding: 0 !important;
+  margin-top: 5px !important;
+  margin-bottom: 0 !important;
+}
+
+.ukq_imagecredit a {
+  color: black;
+}
+
+/* Answer container */
+
+.ukq_answers {
+  text-align: center;
+  line-height: 0;
+}
+
+/* Answers, hover and activation effects */
+
+#buzz_sub_buzz { overflow:initial !important; }
+
+.ukq_answer {
+  font-family: "Arial Narrow", sans-serif;
+  font-size: 0.9em !important;
+  line-height: normal !important;
+  box-sizing:content-box;
+  background-color: grey;
+  border: 0px solid black !important;
+  padding: 4px !important;
+  overflow: hidden;
+  position: relative;
+  text-align: left;
+  margin-bottom: 0.7em !important;
+}
+
+.enabled .ukq_answer {
+  cursor: pointer;
+}
+
+.ukq_image_answer {
+  margin: 3px !important;
+}
+
+.ukq_img {
+	float: left;
+	width: calc(100% / 3);
+}
+
+.ukq_2col {
+	width: 50%;
+}
+
+.ukq_ansdesc {
+	position: relative;
+  display: inline-block;
+  left: 0px;
+  top: 5px;
+  text-align: left;
+  font-size: 0.9em;
+  font-weight: 400 !important;
+  margin-bottom: 4px !important;
+	width: 100%;
+  height: auto;
+}
+
+.ukq_align_ansdesc {
+	float: left;
+	width: calc(100% - 1em - 7px);
+	min-height: 1em;
+	left: 0px;
+	margin-bottom: 0px !important;
+	margin-top: 0.12em !important;
+}
+
+.ukq_answer.deactivated {
+  opacity: 0.6;
+}
+.uk_engine_quiz .enabled .ukq_answer:hover {
+  background-color: lightyellow;
+  opacity: 1;
+}
+/* Don't do hovering on deactivated cells... */
+.uk_engine_quiz .ukq_answer.deactivated:hover {
+  background-color: lightyellow;
+  opacity: 0.6;
+}
+.ukq_answer.selected {
+  background-color: #FFEAAB !important;
+  color: #000;
+  opacity: 1;
+}
+.ukq_answer.selected.terminated, .ukq_answer.selected.incorrect {
+	background-color: #FF9999 !important
+}
+.ukq_answer.correct {
+	background-color: #82ff9e !important;
+}
+
+.ukq_answer.selected.correct {
+	background-color: #82ff9e !important;
+}
+
+/* Images in answers - now with load placehold */
+
+.ukq_question .ukq_ans_img {
+  position:relative;
+  line-height:0 !important;
+}
+.ukq_question .ukq_ans_img:before{
+	content: "";
+	display: block;
+	padding-top: 100%; 
+}
+.ukq_question .ukq_ans_img_wrap {
+	position:  absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+}
+.ukq_2col .ukq_ans_img:before {
+	padding-top: 72%; 
+}
+.ukq_ans_img img {
+  width: 100%;
+	min-width: 100%;
+}
+
+/* Images in results, load placehold */
+
+.ukq_quiz_results .ukq_quiz_result_image {
+  position:relative;
+  line-height:0 !important;
+	max-width:630px;
+  margin-top: -10px !important;
+}
+.ukq_quiz_results .ukq_quiz_result_image:before{
+	content: "";
+	display: block;
+	padding-top: 46.5%;
+}
+.ukq_quiz_results .ukq_quiz_result_image_inner {
+	position:  absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+  overflow: hidden;
+}
+.ukq_quiz_results .ukq_imagecredit {
+  margin-bottom: 7px !important;
+}
+
+/* Hero jog fix */
+
+.ukq_hero_img_wrap_outer {
+  position:relative;
+  line-height:0 !important;
+	max-width: 693px;
+	margin-left:auto;
+	margin-right:auto;
+	overflow: hidden;
+}
+.ukq_hero_img_wrap_outer:before {
+	content: "";
+	display: block;
+	padding-top: 47.5%; 
+}
+.ukq_hero_img_wrap_inner {
+	position:  absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+}
+
+/* Credit for answer images */
+
+.ukq_ans_img_credit {
+  bottom: 0px;
+  right: 0;
+  max-width: 60%;
+  overflow-x: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  position: absolute;
+  color: grey !important;
+  background: none;
+  padding: 9px 6px !important;
+  font-size: 1.8em !important;
+  word-break: break-word;
+  font-weight: 300;
+  font-family: "Brush Script MT", cursive;
+  font-style:italic;
+}
+.ukq_ans_img_credit a {
+  color: #dbdbdb !important;
+  opacity:0;
+}
+.ukq_ans_img_credit a:hover {
+  text-decoration:underline;
+}
+
+/* Checkbox for ticking */
+
+/* Mobile */
+
+.ukq_checkbox {
+	width: 1em;
+  height: 1em;
+  float: left;
+	position:relative;
+	margin-right: 0.35em;
+	top: 0.15em;
+}
+
+.ukq_checkbox_inner {
+  width: 1em;
+  height: auto;
+  border: none;
+  background: none;
+  margin: 0;
+}
+.ukq_checkbox_inner:before {
+	content: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj4KICA8Y2lyY2xlIGN4PSI0OS41IiBjeT0iNDkuNSIgcj0iNDUiIHN0eWxlPSJmaWxsOiB0cmFuc3BhcmVudDtzdHJva2U6ICMwMDA7c3Ryb2tlLW1pdGVybGltaXQ6IDEwO3N0cm9rZS13aWR0aDogOXB4Ii8+Cjwvc3ZnPgo=");
+  font-size: 1.8em;
+  line-height: 1em;
+  color: none;
+}
+
+/* Mobile */
+.ukq_answer.selected .ukq_checkbox_inner:before {
+	content: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj4KICA8Y2lyY2xlIGN4PSI0OS41IiBjeT0iNDkuNSIgcj0iNDUiIHN0eWxlPSJmaWxsOiB0cmFuc3BhcmVudDtzdHJva2U6ICMwMDA7c3Ryb2tlLW1pdGVybGltaXQ6IDEwO3N0cm9rZS13aWR0aDogOXB4Ii8+CiAgPGNpcmNsZSBjeD0iNDkuNSIgY3k9IjQ5LjUiIHI9IjI1IiBzdHlsZT0ic3Ryb2tlOiAjMDAwO3N0cm9rZS1taXRlcmxpbWl0OiAxMDtzdHJva2Utd2lkdGg6IDVweCIvPgo8L3N2Zz4K");
+}
+
+/* Results */
+
+.ukq_nopad {
+  padding:0px !important;
+}
+
+.ukq_quiz_results {
+  background: none;
+  border: 0px solid #dddddd !important;
+  padding: 2% !important;
+  margin: 20px 0 !important;
+  font-family: "Arial Narrow", sans-serif !important;
+}
+
+.ukq_quiz_results span {
+  display:block;
+  padding:10px 0;
+  line-height: normal;
+}
+
+/*.ukq_quiz_results .answer_shares_buttons {*/
+/*  display: inline-block;*/
+/*}*/
+
+.ukq_quiz_results .ukq_quiz_name {
+  font-size: 1.8em;
+  line-height: 23px;
+  font-weight: 600;
+  color: black;
+  margin: 0 0 5px 0;
+  padding: 0;
+}
+
+.ukq_quiz_results .ukq_quiz_result {
+  font-size: 1.8em;
+  line-height: 1.1em;
+  font-weight: 600;
+}
+
+.ukq_quiz_results .ukq_quiz_text {
+  font-size: 1.8em;
+  line-height: 23px;
+  color: black;
+  margin: 0 0 10px 0;
+  padding: 0;
+}
+
+.ukq_quiz_result_image img {
+  max-width:100%;
+}
+
+.ukq_quiz_results .svg-icon {
+	top: 10px;
+	position: relative;
+}
+
+.ukq_res_ghr {
+  margin-top:10px;
+  border-top: 1px solid #dddddd;
+  margin-left:-5.5%;
+  margin-right:-5.5%;
+}
+
+
+/* Multi-select */
+
+.uknf_solidish {
+  cursor: pointer !important;
+  box-sizing: border-box;
+  padding: 0 !important;
+  background-image: none !important;
+  border: 1px solid transparent !important;
+  white-space: nowrap !important;
+  user-select: none;
+  padding: .5em .875em !important;
+  font-size: 1em !important;
+  line-height: 1.5em !important;
+  border-radius: 3px !important;
+  text-decoration: none !important;
+  cursor: pointer !important;
+  display: inline-block;
+  border: 1px solid transparent !important;
+  text-align: center !important;
+  border: 1px solid transparent !important;
+  transition: background-color .1s ease 0s !important;
+}
+
+
+.uknf_solidishblue {
+  background-color: lightblue !important;
+  border-color: lightblue !important;
+}
+
+.uknf_solidishblue:hover {
+  background-color: lightblue !important;
+  transition: background-color .15s ease 0s !important;
+}
+
+.uknf_solidish_wide {
+  width: 100%;
+}
+
+/* Retry */
+
+.ukq_retry {
+  border: 1px solid lightblue !important;
+  color: black !important;
+  background: lightblue !important;
+}
+.ukq_retry:hover {
+  background-color: lightblue!important;
+  color: #fff!important;
+}
+
+/* Invert for retake */
+
+.ukq_immortal {
+  background-color: #07e!important;
+  color: #fff!important;
+}
+.ukq_immortal:hover {
+  border: 1px solid #07e!important;
+  color: #07e!important;
+  background: none!important;
+}
+
+
+
+/*Home Stuff*/
+
+.homebody {
+   background: url("https://png.pngtree.com/thumb_back/fh260/back_pic/03/91/49/7657dfe6313670e.jpg");
+   background-size: contain;
+}
+
+a {
+  color: white;
+}
+
+.homeheading {
+    opacity: 0.6;
+    background-image: url(https://www.purefandom.com/wp-content/uploads/2017/04/636013879527247628-567764177_0a4de910-687c-0133-4d4a-0e3f8b958f63.jpg) ;
+    background-size: cover;
+}
+
+.hometitle {
+    color: white;
+    font-size: 90px;
+    text-align: center;   
+    font-family: "Brush Script MT", cursive;
+}
+
+.bookscover {
+  opacity: 0.8;
+  width: 25%;
+  height: 55%;
+  background-image: url("https://i.imgur.com/S3rC3xb.jpg")
+}
+
+.bookstitle {
+    color: white;
+    text-align: left;   
+    font-family: "Brush Script MT", cursive;
+    padding-left: 100px;
+    font-size: 40px;
+}
+
+.right {
+  position: relative;
+    left: 1070px;
+    top: -478px;
+    z-index: 1;
+  opacity: 0.7;
+  width: 25%;
+  height: 55%;
+  background-image: url("http://i.imgur.com/V9iJlca.jpg");
+  background-size: contain;
+}
+
+.movietitle {
+    color: white;
+    text-align: right;   
+    font-family: "Brush Script MT", cursive;
+    padding-right: 100px;
+    font-size: 40px;
+    z-index: 2;
+}
+
+.middlegif {
+  position: relative;
+   left: 462px;
+   top: -830px;
+  opacity: 0.7;
+}
+
+.housequizcover {
+    position: relative;
+   left: 30px;
+   top: -745px;
+  opacity: 0.7;
+  width: 15%;
+  height: 25%;
+  background-image: url("http://media.comicbook.com/2018/03/fantastic-beasts-hogwarts-1093058-1280x0.jpeg");
+  background-size: cover;
+}
+
+.housequiztitle {
+    color: white;
+    text-align: center;   
+    font-family: "Brush Script MT", cursive;
+    font-size: 30px;
+}
+
+.castcover {
+    position: relative;
+   left: 320px;
+   top: -973px;
+  opacity: 0.7;
+  width: 15%;
+  height: 25%;
+  background-image: url("https://usercontent2.hubstatic.com/13386969_f496.jpg");
+  background-size: cover;
+}
+
+.casttitle {
+    color: white;
+    text-align: center;   
+    font-family: "Brush Script MT", cursive;
+    font-size: 30px;
+}
+
+.plotcover {
+    position: relative;
+   left: 605px;
+   top: -1201px;
+  opacity: 0.7;
+  width: 15%;
+  height: 25%;
+  background-image: url("https://studybreaks.com/wp-content/uploads/2017/07/harry-potter-and-the-chamber-of-secrets_db0092.jpg");
+  background-size: cover;
+}
+
+.plottitle {
+    color: white;
+    text-align: center;   
+    font-family: "Brush Script MT", cursive;
+    font-size: 30px;
+}
+
+.animagusquizcover {
+    position: relative;
+   left: 890px;
+   top: -1430px;
+  opacity: 0.7;
+  width: 15%;
+  height: 25%;
+  background-image: url("https://cdn.inquisitr.com/wp-content/uploads/2012/01/harry-potters-owl.jpg");
+  background-size: cover;
+}
+
+.animagusquiztitle {
+    color: white;
+    text-align: center;   
+    font-family: "Brush Script MT", cursive;
+    font-size: 30px;
+}
+
+.characterquizcover {
+    position: relative;
+   left: 1170px;
+   top: -1656px;
+  opacity: 0.7;
+  width: 15%;
+  height: 25%;
+  background-image: url("https://fanfest.com/wp-content/uploads/2017/07/harry-potter.png");
+  background-size: cover;
+}
+
+.characterquiztitle {
+      color: white;
+    text-align: center;   
+    font-family: "Brush Script MT", cursive;
+    font-size: 30px;
+}
+
+/*Movies Stuff*/
+
+.moviesbody {
+  background-image: url("https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/ENwbI9D3xilj9k3k8/nature-old-paper-texture-or-background-video-animation_rpiagnsz__S0000.jpg");
+}
+
+h1 {
+    text-align: center;   
+    font-family: "Brush Script MT", cursive;
+    font-size: 50px;
+}
+
+
+/*Books Stuff*/
+
+.booksbody {
+  background-image: url("https://image.freepik.com/free-photo/grunge-vintage-old-paper-background_1373-431.jpg");
+}
+
+.books {
+    text-align: center;   
+    font-family: "Brush Script MT", cursive;
+    font-size: 50px;
+}
+
+
+/*Summary Stuff*/
+
+.summarybody {
+  background-image: url("https://image.freepik.com/free-photo/grunge-vintage-old-paper-background_1373-431.jpg");
+  background-size: cover;
+}
+
+.summaryheading {
+    text-align: center;   
+    font-family: "Brush Script MT", cursive;
+    font-size: 80px;
+}
+
+.onesummary {
+  opacity: 0.8;
+  background-image: url("https://pics.livejournal.com/exit47/pic/000f5x6s/s640x480");
+  background-size: cover;
+}
+
+.onesummaryhead {
+    color: white;
+    text-align: center;   
+    font-family: "Brush Script MT", cursive;
+    font-size: 40px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+.onesummaryinfo {
+    color: white;
+    text-align: center;   
+    font-family: "Arial Narrow", sans-serif;
+    font-size: 20px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+
+.twosummary {
+  opacity: 0.8;
+  background-image: url("http://kissthemgoodbye.net/harrypotter/albums/chamberofsecrets/Harry_Potter_and_the_Chamber_of_Secrets_0803.jpg");
+  size: 100%;
+}
+
+.twosummaryhead {
+    color: white;
+    text-align: center;   
+    font-family: "Brush Script MT", cursive;
+    font-size: 40px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+.hello {
+    color: white;
+    text-align: center;   
+    font-family: "Arial Narrow", sans-serif;
+    font-size: 20px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+.prisoner {
+  opacity: 0.8;
+  background-image: url("http://athenacinema.com/wp-content/uploads/2016/01/prizofaz2.jpg");
+}
+
+.prisonerhead {
+    color: white;
+    text-align: center;   
+    font-family: "Brush Script MT", cursive;
+    font-size: 40px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+.prisonerinfo {
+    color: white;
+    text-align: center;   
+    font-family: "Arial Narrow", sans-serif;
+    font-size: 20px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+.goblet {
+  opacity: 0.8;
+  background-image: url("http://images1.fanpop.com/images/photos/2600000/Ron-Hermione-Screencaps-Goblet-of-Fire-romione-2633689-500-208.jpg");
+  background-size: cover;
+}
+
+.goblethead {
+    color: white;
+    text-align: center;   
+    font-family: "Brush Script MT", cursive;
+    font-size: 40px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+.gobletinfo {
+    color: white;
+    text-align: center;   
+    font-family: "Arial Narrow", sans-serif;
+    font-size: 20px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+.phoenix {
+  opacity: 0.8;
+  background-image: url("https://vignette.wikia.nocookie.net/harrypotter/images/a/ae/Order-of-the-phoenix-movie-screencaps.com-3530.jpg/revision/latest?cb=20150810143902");
+}
+
+.phoenixhead {
+    color: white;
+    text-align: center;   
+    font-family: "Brush Script MT", cursive;
+    font-size: 40px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+.phoenixinfo {
+    color: white;
+    text-align: center;   
+    font-family: "Arial Narrow", sans-serif;
+    font-size: 20px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+.halfblood {
+  opacity: 0.8;
+  background-image: url("http://images5.fanpop.com/image/photos/30900000/The-Half-Blood-Prince-Harmony-Screencap-harry-potter-30945812-500-200.png");
+  background-size: cover;
+}
+
+.halfbloodhead {
+    color: white;
+    text-align: center;   
+    font-family: "Brush Script MT", cursive;
+    font-size: 40px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+.halfbloodinfo {
+    color: white;
+    text-align: center;   
+    font-family: "Arial Narrow", sans-serif;
+    font-size: 20px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+.dhallows {
+  opacity: 0.8;
+  background-image: url("http://kissthemgoodbye.net/harrypotter/albums/darysmerti/Harry_Potter_and_the_Deathly_Hallows_Part_1_KISSTHEMGOODBYE_NET_1447.jpg");
+}
+
+.hallowshead {
+    color: white;
+    text-align: center;   
+    font-family: "Brush Script MT", cursive;
+    font-size: 40px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+.hallowsinfo {
+    color: white;
+    text-align: center;   
+    font-family: "Arial Narrow", sans-serif;
+    font-size: 20px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+/*links stuff*/
+
+.linksbody {
+  background-image: url("https://img00.deviantart.net/0440/i/2008/137/1/8/old_paper_by_struckdumb.jpg");
+  background-size: cover;
+}
+
+.linksheader {
+  font-family: "Brush Script MV", cursive;
+  text-align: center;
+  font-size: 70px;
+  position: relative;
+  top: -100px;
+}
+
+.pottermorelink {
+  opacity: 0.8;
+  background-image: url("https://media3.giphy.com/media/rXTWCCL8Hxn0Y/giphy.gif");
+  background-size: cover;
+  width: 25%;
+  height: 325px;
+  position: relative;
+  left: 1px;
+  top: -100px;
+}
+
+.pottermore {
+  color: white;
+  font-family: "Brush Script MV", cursive;
+  font-size: 40px;
+  position: relative;
+  left: 53px;
+  bottom: 0px;
+}
+
+.wikipedialink {
+  opacity: 0.8;
+  background-image: url("https://media.giphy.com/media/GRk4PujnnbFi8/giphy.gif");
+  background-size: contain;
+  width: 400%;
+  height: 325px;
+    position: absolute;
+    clip: rect(-100px,480px,400px,130px);
+    top: 260px; left: 242px;
+}
+
+.wikipedia {
+  color: white;
+  font-family: "Brush Script MV", cursive;
+  font-size: 40px;
+  position: relative;
+  right: -190px;
+}
+
+.websitelink {
+  opacity: 0.8;
+  background-image: url("http://www.reactiongifs.com/r/2013/11/ds.gif");
+  background-size: contain;
+  width: 200%;
+  height: 325px;
+    position: absolute;
+    clip: rect(-100px,400px,400px,50px);
+    top: 260px; left: 679px;
+}
+
+.website {
+  color: white;
+  font-family: "Brush Script MV", cursive;
+  font-size: 40px;
+  position: relative;
+  right: -90px;
+}
+
+.quizlink {
+  opacity: 0.8;
+  background-image: url("https://media.giphy.com/media/dHBVpEUKtEfJe/giphy.gif");
+  background-size: contain;
+  width: 200%;
+  height: 325px;
+    position: absolute;
+    clip: rect(-100px,400px,400px,50px);
+    top: 260px; left: 1037px;
+}
+
+.quiz {
+  color: white;
+  font-family: "Brush Script MV", cursive;
+  font-size: 40px;
+  position: relative;
+  right: -78px;
+}
+
+
+/*Characters Stuff*/
+
+.charactersbody {
+  background-image: url("http://www.freebiesgallery.com/wp-content/uploads/2013/09/paper-backgrounds.jpg");
+}
+
+.charactershead {
+  opacity: 0.8;
+  color: black;
+  font-size: 90px;
+}
+
+.allfirst {
+  opacity: 0.7;
+  background-image: url("https://78.media.tumblr.com/9b21dd6d33cdf17e54b69f7ff55644f5/tumblr_oketv6Jd3G1t45s8wo2_500.gif");
+  background-size: cover;
+}
+
+.allsecond {
+  opacity: 0.7;
+  background-image: url("https://www.bookstr.com/sites/default/files/articles/images/dobbygetsasock.jpg");
+  background-size: cover;
+}
+
+.allthird {
+  opacity: 0.7;
+  background-image: url("https://media.giphy.com/media/YfOSDl7r7ut0I/giphy.gif");
+  background-size: cover;
+}
+
+.allfourth {
+  opacity: 0.7;
+  background-image: url("https://www.factinate.com/wp-content/uploads/2018/01/ginny.jpg");
+  background-size: cover;
+}
+
+.allfifth {
+  opacity: 0.7;
+  background-image: url("https://78.media.tumblr.com/5dfba1e8983e8e149ff218233ced3a3d/tumblr_oli0983VjC1w4xiyfo1_500.gif");
+  background-size: cover;
+}
+
+.allsixth {
+  opacity: 0.7;
+  background-image: url("https://vignette.wikia.nocookie.net/harrypotter/images/7/73/Halfblood-00290.jpg/revision/latest?cb=20141225174131");
+  background-size: cover;
+}
+
+.allseventh {
+  opacity: 0.7;
+  background-image: url("https://78.media.tumblr.com/accd53b76bce216b03f9b3318ffd6333/tumblr_mx3h9dvZSB1qdulwko3_500.gif");
+  background-size: cover;
+}
+
+.alleighth {
+  opacity: 0.7;
+  background-image: url("https://usatftw.files.wordpress.com/2016/05/xxx_harry_potter_deathly_hallows_part_1_mov__22794_38915103.jpg?w=1000&h=563");
+  background-size: cover;
+}
+
+.allninth {
+  opacity: 0.7;
+  background-image: url("http://i840.photobucket.com/albums/zz323/dyepribudoy/Mcgonagall-Explaining.gif");
+  background-size: cover;
+}
+
+.alltenth {
+  opacity: 0.7;
+  background-image: url("http://images6.fanpop.com/image/photos/36300000/Remus-Lupin-image-remus-lupin-36381467-500-206.jpg");
+  background-size: cover;
+}
+
+.alleleventh {
+  opacity: 0.7;
+  background-image: url("https://vignette.wikia.nocookie.net/harrypotter/images/6/6a/Hagrid_conjuring_fire.gif/revision/latest?cb=20150718195246");
+  background-size: cover;
+}
+
+.alltwelth {
+  opacity: 0.7;
+  background-image: url("https://filmgrab.files.wordpress.com/2016/08/orderofphoenix23.jpg");
+  background-size: cover;
+}
+
+.allthirteenth {
+  opacity: 0.7;
+  background-image: url("https://i.pinimg.com/originals/ce/ef/a1/ceefa187afa7a611c223d8e4b84e3ea3.gif");
+  background-size: cover;
+}
+
+.allfourteenth {
+  opacity: 0.7;
+  background-image: url("https://78.media.tumblr.com/72a2f996ae43ff8403b99fa879bce0a6/tumblr_ow2frliu9e1qfuyaho1_500.jpg");
+  background-size: cover;
+}
+
+.allfifteenth {
+  opacity: 0.7;
+  background-image: url("http://31.media.tumblr.com/05726bb0f3fdfdcdcfa218fc20c29be4/tumblr_mpztolIgPD1rdsnxoo1_500.gif");
+  background-size: cover;
+}
+
+.allsixteenth {
+  opacity: 0.7;
+  background-image: url("http://images5.fanpop.com/image/photos/26600000/HP-DH-part-2-lord-voldemort-26625090-500-208.jpg");
+  background-size: cover;
+}
+
+.allseventeenth {
+  opacity: 0.7;
+  background-image: url("https://i.gifer.com/9jKN.gif");
+  background-size: cover;
+}
+
+.alleighteenth {
+  opacity: 0.7;
+  background-image: url("https://vignette.wikia.nocookie.net/harrypotter/images/3/3f/Halfblood-03621.jpg/revision/latest?cb=20140813154241");
+  background-size: cover;
+}
+
+.allnineteenth {
+  opacity: 0.7;
+  background-image: url("https://img.buzzfeed.com/buzzfeed-static/static/2014-07/28/21/enhanced/webdr07/anigif_enhanced-27631-1406596292-11.gif");
+  background-size: cover;
+}
+
+.alltwentieth {
+  opacity: 0.7;
+  background-image: url("http://cdn.playbuzz.com/cdn/6f24ee5a-3005-471f-86b3-865e241b992c/82670642-f146-4b3b-82a2-cb9b16420698.jpg");
+  background-size: cover;
+}
+
+.alltwentyfirst {
+  opacity: 0.7;
+  background-image: url("https://media.giphy.com/media/FqiMtOyofi3cI/giphy.gif");
+  background-size: cover;
+}
+
+.alltwentysecond {
+  opacity: 0.7;
+  background-image: url("https://pics.livejournal.com/lifeisharder/pic/000eky9t/s640x480");
+  background-size: cover;
+}
+
+.name {
+  text-align: center;
+  color: white;
+  font-size: 30px;
+  font-family: "Brush Script MV", cursive;
+}
+
+.info {
+  text-align: center;
+  color: white;
+  font-size: 20px;
+  font-family:"Arial Narrow", sans-serif;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+
+
+/*Character Quiz Stuff*/
+
+.charactershead {
+  opacity: 0.8;
+  background-image: url("http://i50.tinypic.com/okos93.jpg");
+  background-size: cover;
+  text-align: center;
+  color: black;
+  font-size: 80px;
+  font-family: "Brush Script MV", cursive;
+}
+
+.characterquestion {
+  color: black;
+  font-size: 30px;
+  font-family: "Brush Script MV", cursive;
+}
+
+.characterresult1 {
+  color: black;
+  font-size: 30px;
+  font-family: "Brush Script MV", cursive;
+}
+
+.characterresult2 {
+  color: black;
+  font-size: 90px;
+  font-family: "Brush Script MV", cursive;
+}
+
+.characteranswer {
+  text-align: center;
+  color: black;
+  font-size: 40px;
+  font-family: "Arial Narrow", sans-serif;
+}
+
+.resulttime {
+  opacity: 0.8;
+  background-image: url("http://www.freebiesgallery.com/wp-content/uploads/2013/09/paper-backgrounds.jpg");
+  background-size: cover;
+}
